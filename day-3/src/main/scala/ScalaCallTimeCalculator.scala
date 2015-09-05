@@ -1,5 +1,3 @@
-import java.util.Calendar
-
 /**
  * A mechanism to time function call or a code block
  */
@@ -8,14 +6,11 @@ object ScalaCallTimeCalculator extends App {
   def timerMS(body: => Unit) : Long = {
 
     var diff = 0L;
-    val before = Calendar.getInstance().getTime.getTime
-    //println(new java.util.Date)
+    val before = System.currentTimeMillis
     try {
       body
-      //Thread.sleep(10000)
     } finally {
-      //println(new java.util.Date)
-      val after = Calendar.getInstance().getTime.getTime
+      val after = System.currentTimeMillis
       diff = after - before
     }
     diff
