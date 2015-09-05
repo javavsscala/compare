@@ -11,7 +11,7 @@ object TopBuild extends Build {
   // without dependsOn, you'll get a compiler error: "object bar is not a member of package
   // com.alvinalexander".
   lazy val root = Project(id = "top",
-                          base = file(".")) aggregate(day1, day2) dependsOn(day1, day2)
+                          base = file(".")) aggregate(day1, day2, day3) dependsOn(day1, day2, day3)
 
   // sub-project in the day-1 subdirectory
   lazy val day1 = Project(id = "day-1",
@@ -20,4 +20,8 @@ object TopBuild extends Build {
   // sub-project in the day-2 subdirectory
   lazy val day2 = Project(id = "day-2",
                          base = file("day-2"))
+  
+  // sub-project in the day-3 subdirectory
+  lazy val day3 = Project(id = "day-3",
+                         base = file("day-3"))
 }
